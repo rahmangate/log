@@ -1,0 +1,42 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="card">
+        <div class="card-header">
+                <h4>Employees <small class="badge badge-pill badge-primary">0</small></h4>
+        </div>
+        <div class="card-body card_h_m">
+            <div class="row">
+                    {% if employee_list %}
+
+                    {% for employee in employee_list %}
+                        <div class="col-3 person">
+                            <div class="row">
+                                <div class="pic">{% load static %}
+                                    <img  src="{% static 'img/pic.png' %}" />
+                                </div>
+                                <ul class="list-unstyled col">
+                                    <li><h6>{{ employee.first_name }}  {{ employee.last_name}}</h6></li>
+                                    <li><small><i class="fa fa-building"></i> {{ employee.department }}</small></li>
+                                    <li><small><i class="fa fa-briefcase"></i> {{ employee.role }}</small></li>
+                                    <li><small><i class="fa fa-phone"> </i> {{ employee.phone}}</small></li>
+                                    <li><small><i class="fa fa-envelope"> </i> {{ employee.email}} </small></li>
+                                    <li><a href="{{ employee.get_absolute_url }}">Details</a></li>
+                                </ul>
+                            </div>
+                        </div>
+            
+                    {% endfor %}
+                       <!-- <p>No employees </p>-->
+                    {% endif %}
+            
+            </div>
+        </div>
+        <div class="card-footer">
+            <a  class="btn btn-outline-primary" href="{% url 'employee_create' %}" >Add New Employee</a>
+        </div>
+    </div>
+
+{% endblock %}
+

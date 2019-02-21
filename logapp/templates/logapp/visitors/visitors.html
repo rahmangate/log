@@ -1,0 +1,43 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="card">
+        <div class="card-header">
+                <h4>Visitors <small class="badge badge-pill badge-primary">0</small></h4>
+        </div>
+        <div class="card-body card_h_m">
+            <div class="row">
+                    {% if visitor_list %}
+
+                    {% for visitor in visitor_list %}
+                        <div class="col-3 person">
+                            <div class="row">
+                                <div class="pic">{% load static %}
+                                    <img  src="{% static 'img/pic.png' %}" />
+                                </div>
+                                <ul class="list-unstyled col">
+                                    <li><h6>{{ visitor.first_name }}   {{ visitor.last_name}}</h6></li>
+                                    <!--<li><small><i class="fa fa-building"></i> {{ visitor.company }} </small></li>-->
+                                    <li><small><i class="fa fa-phone"> </i> {{ visitor.phone }}</small></li>
+                                    <!--<li><small><i class="fa fa-user"> </i> person to see</small></li>
+                                    <li><small><i class="fa fa-question"> </i> purpose</small></li>
+                                    <li><small><i class="fa fa-tag"> </i> Tag ID</small></li> -->
+                                    <li><a href="#">Details</a></li>
+                                </ul>
+                            </div>
+                        </div>
+            
+                    {% endfor %}
+                     <!--   <p>No visitors </p>-->
+                    {% endif %}
+            
+            </div>
+        </div>
+        <div class="card-footer">
+            <a  class="btn btn-outline-primary" href="{% url 'visitor_create' %}" >Add New Visitor</a>
+        </div>
+    </div>
+
+{% endblock %}
+

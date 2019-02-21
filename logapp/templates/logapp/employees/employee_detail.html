@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="card">
+        <div class="card-header">
+            <div class="pic_l">{% load static %}
+                <img  src="{% static 'img/pic.png' %}" />
+            </div>   
+            <h4> {{ employee.first_name }}  {{ employee.last_name}}</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                   
+                        <div class="col">
+                            <div class="row">
+                                <ul class="list-unstyled col">
+                                    
+                                    <li><i class="fa fa-building"></i> {{ employee.department }}</li>
+                                    <li><i class="fa fa-briefcase"></i> {{ employee.role }}</li>
+                                    <li><i class="fa fa-phone"> </i> {{ employee.phone}} </li>
+                                    <li><i class="fa fa-envelope"> </i> {{ employee.email}} </li>  
+                                </ul>
+                            </div>
+                        </div>
+        
+            </div>
+        </div>
+        <div class="card-footer">
+            <a  class="btn btn-outline-primary" href="#" >Update</a>
+        </div>
+    </div>
+
+{% endblock %}
+
